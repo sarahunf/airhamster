@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6832212674197376987}
   - component: {fileID: 6832212674197376984}
-  - component: {fileID: 6832212674197376985}
   - component: {fileID: 6832212674197376998}
   - component: {fileID: 4330593693002281868}
+  - component: {fileID: 2263623557227420723}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -85,28 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!68 &6832212674197376985
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6832212674197376999}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.35000008, y: 0}
-  - {x: 0.35000008, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!251 &6832212674197376998
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -138,3 +116,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9434ac2fccbd9b44b58a42128450366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &2263623557227420723
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832212674197376999}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.165, y: 0}
+  - {x: 1.165, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
