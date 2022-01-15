@@ -26,9 +26,8 @@ namespace Player
                     speed = maxSpeed;
                 else
                     speed += acceleration * Time.deltaTime;
-
-                var translation = Time.deltaTime * speed;
-                moveX = Input.GetAxis("Horizontal") * translation;
+                
+                moveX = Input.GetAxis("Horizontal") * speed;
             }
             else
             {
