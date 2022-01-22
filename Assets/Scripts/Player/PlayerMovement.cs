@@ -11,6 +11,7 @@ namespace Player
         [SerializeField] private float speed;
         private float startingSpeed;
         [SerializeField] private float moveX;
+        public float positionY;
 
         private void Awake()
         {
@@ -43,6 +44,10 @@ namespace Player
             Vector2 velocity = rb.velocity;
             velocity.x = moveX;
             rb.velocity = velocity;
+
+            if (!(positionY < rb.position.y)) return;
+            positionY = rb.position.y;
+            PlayerController.ME.RecordHighestPosition(positionY);
         }
     }
 }
