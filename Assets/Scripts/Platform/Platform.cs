@@ -5,6 +5,15 @@ namespace Platform
 {
     public class Platform : MonoBehaviour
     {
+        public enum Type
+        {
+            NORMAL,
+            BLINK,
+            BREAK,
+            ROCK,
+            FIRST
+        }
+
         private float JumpForce = 10f;
         public virtual float jumpForce
         {

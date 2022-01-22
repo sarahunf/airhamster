@@ -10,17 +10,18 @@ namespace Platform
         [SerializeField] private Platform[] platforms;
         [SerializeField] private Transform platformParent;
         [SerializeField] private float platformCount;
+        private int lastReturnedIndex;
 
-        private Dictionary<Platform, float> chances;
+        private Dictionary<Platform.Type, float> chances;
 
         private void Awake()
         {
-            chances = new Dictionary<Platform, float>
+            chances = new Dictionary<Platform.Type, float>
             {
-                {platforms[0], 0.5f}, //normal
-                {platforms[1], 0.7f}, //blink
-                {platforms[2], 0.8f}, //break
-                {platforms[3], 0.9f}, //rock
+                {Platform.Type.NORMAL, 0.5f}, //normal
+                {Platform.Type.BLINK, 0.7f}, //blink
+                {Platform.Type.BREAK, 0.8f}, //break
+                {Platform.Type.ROCK, 0.9f}, //rock
             };
         }
 
@@ -35,19 +36,25 @@ namespace Platform
                 Instantiate(RandomPlatform(), spawnPosition, quaternion.identity, platformParent);
             }
         }
-
+        
         private GameObject RandomPlatform()
         {
             var value = Random.Range(0, 0.91f);
+            var platformIndex = 0;
+            if (value > chances[Platform.Type.NORMAL] && value <= chances[Platform.Type.BLINK])
+                platformIndex = 1;
+            if (value > chances[Platform.Type.BLINK] && value <= chances[Platform.Type.BREAK])
+                platformIndex = 2;
+            if (value > chances[Platform.Type.BREAK] && value <= chances[Platform.Type.ROCK])
+                platformIndex = 3;
+
+            if (platformIndex == 3 && lastReturnedIndex == 3)
+            {
+                platformIndex = 0;
+            }
+            lastReturnedIndex = platformIndex;
             
-            if (value > chances[platforms[0]] && value <= chances[platforms[1]])
-                return platforms[1].gameObject;
-            if (value > chances[platforms[1]] && value <= chances[platforms[2]])
-                return platforms[2].gameObject;
-            if (value > chances[platforms[2]] && value <= chances[platforms[3]])
-                return platforms[3].gameObject;
-            
-            return platforms[0].gameObject;
+            return platforms[platformIndex].gameObject;
         }
     }
 }
